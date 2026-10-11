@@ -10,3 +10,208 @@
     overflow-x: hidden;
     padding-bottom: 50px;
 }
+
+/* ===================== Added: page layouts ===================== */
+
+/* ---------- Nav ---------- */
+#root nav {
+    padding: 0 2rem;
+}
+
+/* ---------- Create page ---------- */
+.create-car {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: min(700px, calc(100% - 2rem));
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    background: var(--card-background-color);
+}
+
+.car-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.create-car-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.create-car-name {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#root .create-car-name input[type=text] {
+    margin: 0;
+}
+
+/* ---------- Option picker modal ---------- */
+#root .option-modal {
+    width: min(900px, 92vw);
+    max-width: none;
+}
+
+.option-modal header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: capitalize;
+}
+
+.option-modal header .close {
+    order: 2;
+    margin: 0;
+}
+
+.available-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.option-card {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background-size: cover;
+    background-position: center;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.option-card:hover,
+.option-card.selected {
+    border-color: var(--color);
+}
+
+.option-card-overlay {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+#root .option-card-details p {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+/* ---------- View Cars ---------- */
+#root main.view-cars {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(560px, 100%), 1fr));
+    gap: 1rem;
+    padding: 1rem 2rem;
+}
+
+#root .view-cars article {
+    margin: 0;
+}
+
+.view-cars header h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.view-cars header img {
+    height: 2.5rem;
+}
+
+.car-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 1rem;
+    align-items: center;
+}
+
+.car-price {
+    text-align: center;
+}
+
+#root .car-price p {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* ---------- Car Details / Edit ---------- */
+#root .car-full-details {
+    margin: 1rem 2rem;
+}
+
+.car-full-details header h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.car-full-details header img {
+    height: 3rem;
+}
+
+.details-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.car-details-price,
+.car-modify {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#root .car-details-price p {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.car-selection {
+    position: relative;
+    min-height: 240px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.car-selection-overlay {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+#root .car-selection-details p {
+    margin: 0;
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 768px) {
+    #root nav {
+        flex-wrap: wrap;
+        padding: 0 1rem;
+    }
+    #root nav h1 {
+        font-size: 2rem;
+    }
+    .car-card,
+    .details-content {
+        grid-template-columns: 1fr;
+    }
+    #root .car-full-details {
+        margin: 1rem;
+    }
+}
